@@ -1,14 +1,8 @@
 app.controller('homeController', function($scope,homeService, $state,$window,
 		$timeout) {
-	$scope.status;
-	$scope.users;
-	// getUsers();
-
-
-
+	
 	$scope.registerUser = function() {
 		var user = {
-			//userId: 145,
 			username : $scope.username,
 			emailId : $scope.email,
 			password : $scope.password,
@@ -42,6 +36,10 @@ app.controller('homeController', function($scope,homeService, $state,$window,
 	$scope.invoicebtn = function() {
 		console.log("calling invoice btn,,,,,,,,,,,,,,,,");
 		 $state.go('invoicedetails');
+	};
+	
+	$scope.goToPaymentVoucher = function() {
+		 $state.go('paymentVoucher');
 	};
 	
 	

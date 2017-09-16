@@ -14,14 +14,12 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 		$urlRouterProvider.otherwise("/")
 
 		$stateProvider
-			// you can set this to no template if you just want to use the html in the page
 		.state('login', {
 			url: "/",
 			templateUrl: viewsPrefix + "login.html",
 			controller:'homeController',
 			pageTitle: 'Login'
-		})		
-		.state('home', {
+		}).state('home', {
 			url: "/",
 			templateUrl: viewsPrefix + "home.html",
 			controller:'homeController',
@@ -31,6 +29,11 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 			templateUrl: viewsPrefix + "invoicedetails.html",
 			controller:'invoicedetailsCntrl',
 			pageTitle: 'invoice'
+		}).state('paymentVoucher', {
+			url: "/",
+			templateUrl: viewsPrefix + "paymentVoucher.html",
+			controller:'paymentVoucherController',
+			pageTitle: 'PaymentVoucher'
 		})		
 	    
 	})
