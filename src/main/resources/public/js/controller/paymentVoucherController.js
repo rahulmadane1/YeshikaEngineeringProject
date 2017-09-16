@@ -1,5 +1,47 @@
-app.controller('paymentVoucherController', function($scope,paymentVoucherService, $state,$window,
+app.controller('paymentVoucherController', function($scope, $state,$window,
 		$timeout) {
+	
+	 $scope.paymentVoucher = [
+	        {
+	            'productDesc':'Roy',
+	            'productDesc':'Mathew',
+	            'taxableValue':'roy@roy.com',
+	            'gst': "18",
+                'amountPaid': "12345"
+	        }];
+	    
+	        $scope.addNew = function(paymentVoucher){
+	            $scope.paymentVoucher.push({ 
+	                'productDesc': "", 
+	                'productDesc': "",
+	                'taxableValue': "",
+	                'gst': "",
+	                'amountPaid': ""
+	            });
+	            $scope.PD = {};
+	        };
+	    
+	        $scope.remove = function(){
+	            var newDataList=[];
+	            $scope.selectedAll = false;
+	            angular.forEach($scope.paymentVoucher, function(selected){
+	                if(!selected.selected){
+	                    newDataList.push(selected);
+	                }
+	            }); 
+	            $scope.paymentVoucher = newDataList;
+	        };
+	    
+	        $scope.checkAll = function () {
+	            if (!$scope.selectedAll) {
+	                $scope.selectedAll = true;
+	            } else {
+	                $scope.selectedAll = false;
+	            }
+	            angular.forEach($scope.paymentVoucher, function (paymentVoucher) {
+	                paymentVoucher.selected = $scope.selectedAll;
+	            });
+	        };
 	
 	$scope.registerUser = function() {
 		var paymentVoucher = {

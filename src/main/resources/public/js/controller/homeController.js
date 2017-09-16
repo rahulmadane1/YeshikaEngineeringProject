@@ -27,7 +27,7 @@ app.controller('homeController', function($scope,homeService, $state,$window,
            $state.go('home');
         	   
         }, function(error) {
-        	console.log(response)
+        	console.log(error)
         	//$window.location.href='/log?username='+username;
         });
 	};
