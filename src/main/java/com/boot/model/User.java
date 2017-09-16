@@ -19,10 +19,8 @@ public class User {
 
     private String username;
 	
-/*kjhkjgjgj*/
     private String emailId;
 		
-	
     private String password;
 
     private String role;
