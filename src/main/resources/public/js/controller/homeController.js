@@ -37,7 +37,7 @@ app.controller('homeController', function($scope,homeService, $state,$window,
 		homeService.loginUser($scope.username, $scope.password)
 		.then(function(response) {
            console.log(response)
-           $state.go('login');
+           $state.go('home');
         	   
         }, function(error) {
         	console.log(response)

@@ -10,25 +10,22 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 			return origController.apply(this, arguments);
 		}
 		var viewsPrefix = 'views/';
-
 		// For any unmatched url, send to /
 		$urlRouterProvider.otherwise("/")
 
 		$stateProvider
 			// you can set this to no template if you just want to use the html in the page
-			.state('home', {
-				url: "/",
-				templateUrl: viewsPrefix + "home.html",
-				controller:'homeController',
-				pageTitle: 'Home'
-			})
-			.state('login', {
-				url: "/",
-				templateUrl: viewsPrefix + "login.html",
-				controller:'homeController',
-				pageTitle: 'Login'
-			})
-			
+		.state('login', {
+			url: "/",
+			templateUrl: viewsPrefix + "login.html",
+			controller:'homeController',
+			pageTitle: 'Login'
+		})		
+		.state('home', {
+			url: "/",
+			templateUrl: viewsPrefix + "home.html",
+			pageTitle: 'Home'
+		})
 	    
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',
