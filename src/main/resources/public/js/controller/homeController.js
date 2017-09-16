@@ -4,14 +4,7 @@ app.controller('homeController', function($scope,homeService, $state,$window,
 	$scope.users;
 	// getUsers();
 
-	function getUsers() {
-		homeService.getUsers().success(function(users) {
-			$scope.users = users;
-			console.log($scope.users);
-		}).error(function(error) {
-			$scope.status = 'Unable to load user data: ' + error.message;
-		});
-	}
+
 
 	$scope.registerUser = function() {
 		var user = {
@@ -44,4 +37,12 @@ app.controller('homeController', function($scope,homeService, $state,$window,
         	//$window.location.href='/log?username='+username;
         });
 	};
+	
+	
+	$scope.invoicebtn = function() {
+		console.log("calling invoice btn,,,,,,,,,,,,,,,,");
+		 $state.go('invoicedetails');
+	};
+	
+	
 });

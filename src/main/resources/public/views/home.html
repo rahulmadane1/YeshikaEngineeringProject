@@ -21,18 +21,18 @@ body {
 }
 </style>
 </head>
-<body>
+<body ng-controller="homeController">
 <div class="">
   <div class="">
    Hello...
    <div class="container">
-	  <button type="button" class="btn">Invoice</button>
-	  <button type="button" class="btn btn-default">Export Invoice</button>
-	  <button type="button" class="btn btn-primary">Bill of Supply</button>
+	  <button type="button" ng-click="invoicebtn()" class="btn">Invoice</button>
+	  <button type="button" ng-click="exportinvoicebtn()" class="btn btn-default">Export Invoice</button>
+	  <button type="button" ng-click="billofsupplybtn()" class="btn btn-primary">Bill of Supply</button>
 	  <!--<button type="button" class="btn btn-success">Success</button>--> 
-	  <button type="button" class="btn btn-info">Receipt Voucher</button>
-	  <button type="button" class="btn btn-warning">Payment Voucher</button>
-	  <button type="button" class="btn btn-danger">Refund Voucher</button>
+	  <button type="button" ng-click="receiptvoucherbtn()" class="btn btn-info">Receipt Voucher</button>
+	  <button type="button" ng-click="paymentvoucherbtn()" class="btn btn-warning">Payment Voucher</button>
+	  <button type="button" ng-click="refundvoucher()" class="btn btn-danger">Refund Voucher</button>
 	 <!-- <button type="button" class="btn btn-link">Link</button>   --> 
 	  </div>
   </div>

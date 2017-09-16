@@ -24,8 +24,14 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 		.state('home', {
 			url: "/",
 			templateUrl: viewsPrefix + "home.html",
+			controller:'homeController',
 			pageTitle: 'Home'
-		})
+		}).state('invoicedetails', {
+			url: "/",
+			templateUrl: viewsPrefix + "invoicedetails.html",
+			controller:'invoicedetailsCntrl',
+			pageTitle: 'invoice'
+		})		
 	    
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',
