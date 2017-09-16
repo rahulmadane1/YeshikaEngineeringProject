@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+</style>
+</head>
+<body>
+<div class="login-page">
+  <div class="form">
+   Hello...
+   <div class="container">
+	  <button type="button" class="btn">Basic</button>
+	  <button type="button" class="btn btn-default">Default</button>
+	  <button type="button" class="btn btn-primary">Primary</button>
+	  <button type="button" class="btn btn-success">Success</button>
+	  <button type="button" class="btn btn-info">Info</button>
+	  <button type="button" class="btn btn-warning">Warning</button>
+	  <button type="button" class="btn btn-danger">Danger</button>
+	  <button type="button" class="btn btn-link">Link</button>  
+	  </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+
+$('.message a').click(function(){
+	   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+	});</script>
+</html>
