@@ -1,22 +1,22 @@
-app.controller('homeController', function($scope,homeService, $state,$window,
+app.controller('paymentVoucherController', function($scope,paymentVoucherService, $state,$window,
 		$timeout) {
 	
 	$scope.registerUser = function() {
-		var user = {
-			username : $scope.username,
-			emailId : $scope.email,
-			password : $scope.password,
-			role : 'Admin'
+		var paymentVoucher = {
+			productDesc : $scope.productDesc,
+			hcsACN : $scope.hcsAcn,
+			taxableValue : $scope.taxableValue,
+			gst : $scope.gst,
+			amoutPaid :$scope.amountPaid
 		};
-		console.log(user);
-		homeService.registerUser(user).success(function() {
+		console.log(paymentVoucher);
+		paymentVoucherService.generatePaymentVoucher(paymentVoucher).success(function() {
 			console.log("success");
-			alert('User Registered Successfully.Please Sign in')
-			$window.location.reload();
+			//$window.location.reload();
 			//$timeout(, 2000);
 
 		}).error(function(error) {
-			$scope.status = 'Unable to insert user: ' + error.message;
+			$scope.status = 'Unable to insert record: ' + error.message;
 		});
 	};
 	
