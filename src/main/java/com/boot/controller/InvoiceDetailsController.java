@@ -1,8 +1,10 @@
 package com.boot.controller;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +23,16 @@ public class InvoiceDetailsController {
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	@RequestMapping(value = "invoicedetails", method = RequestMethod.POST)
-	public InvoiceDetails invoicedetailsadd(@RequestBody InvoiceDetails invoiceDetails) {
+	@RequestMapping(value = "invoicedetailsdata", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE,
+	        produces = MediaType.APPLICATION_JSON_VALUE)
+	public void invoicedetailsadd(@RequestBody List<InvoiceDetails> invoiceDetails) {
 		System.err.println("calling InvoiceDetailsControlle.......");
 		System.out.println("User :" + invoiceDetails.toString());
-		return invoiceDetailsServiceImpl.saveinvoicedetail(invoiceDetails);
+		for (InvoiceDetails invoiceDetails2 : invoiceDetails) {
+			
+			invoiceDetailsServiceImpl.saveinvoicedetail(invoiceDetails2);
+		}
+	
 	}
 
 }

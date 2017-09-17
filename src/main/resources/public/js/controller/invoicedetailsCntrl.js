@@ -1,5 +1,5 @@
-app.controller('invoicedetailsCntrl', function($scope,$state,invoicedetailsservice,$window,$timeout) {	
-		
+app.controller('invoicedetailsCntrl', function($scope,$filter,$state,invoicedetailsservice,$window,$timeout) {	
+
 	$scope.invoicedetails = [
         {
         	
@@ -46,7 +46,7 @@ app.controller('invoicedetailsCntrl', function($scope,$state,invoicedetailsservi
 		
 		console.log($scope.invoicedetails);
 		
-		invoicedetailsservice.getinvoicedetails().success(function() {
+		invoicedetailsservice.getinvoicedetails($scope.invoicedetails).success(function() {
 			
 		}).error(function(error) {
 			console.log("Unable to insert invoice data: " + error);
