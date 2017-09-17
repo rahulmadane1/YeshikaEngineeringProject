@@ -11,12 +11,15 @@ app.controller('homeController', function($scope,homeService, $state,$window,
 		console.log(user);
 		homeService.registerUser(user).success(function() {
 			console.log("success");
+			if(user === "Failure"){
+				alert('Authentication failed! Please enter correct username and password.');
+			}
 			alert('User Registered Successfully.Please login')
 			$window.location.reload();
 			//$timeout(, 2000);
 
 		}).error(function(error) {
-			$scope.status = 'Unable to insert user: ' + error.message;
+			console.log('Authentication failed. ' + error);
 		});
 	};
 

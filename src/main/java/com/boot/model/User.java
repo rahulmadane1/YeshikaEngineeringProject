@@ -14,8 +14,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="userId")	
-    private	int userId;
-			
+    private	int userId;	
 
     private String username;
 	
@@ -24,12 +23,8 @@ public class User {
     private String password;
 
     private String role;
-	
-	
-	
 
 	public User() {
-		
 		// TODO Auto-generated constructor stub
 	}
 

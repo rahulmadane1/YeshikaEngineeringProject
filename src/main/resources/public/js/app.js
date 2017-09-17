@@ -34,6 +34,10 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 			templateUrl: viewsPrefix + "paymentVoucher.html",
 			controller:'paymentVoucherController',
 			pageTitle: 'PaymentVoucher'
+		}).state('errorPage', {
+			url: "/",
+			templateUrl: viewsPrefix + "error.html",
+			pageTitle: 'ErrorPage'
 		})		
 	    
 	})

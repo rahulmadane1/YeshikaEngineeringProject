@@ -1,22 +1,22 @@
-app.controller('paymentVoucherController', function($scope, $state,$window,
-		$timeout,paymentVoucherService) {
+app.controller('paymentVoucherController', function($scope, paymentVoucherService,$state,$window,
+		$timeout) {
 		
 	 $scope.paymentVoucher = [
 	        {
-	            'productDesc':'',
-	            'hcsAcn':'',
-	            'taxableValue':'',
+	            'product_desc':'',
+	            'hcs_Acs':'',
+	            'taxable_value':'',
 	            'gst': "18",
-                'amountPaid': ""
+                'total_amount': ""
 	        }];
 	    
 	        $scope.addNew = function(paymentVoucher){
 	            $scope.paymentVoucher.push({ 
-	                'productDesc': "", 
-	                'hcsAcn': "",
-	                'taxableValue': "",
+	                'product_desc': "", 
+	                'hcs_Acs': "",
+	                'taxable_value': "",
 	                'gst': "",
-	                'amountPaid': ""
+	                'total_amount': ""
 	            });
 	            $scope.PD = {};
 	        };
@@ -46,13 +46,14 @@ app.controller('paymentVoucherController', function($scope, $state,$window,
 	
 	        $scope.generatePaymentVoucher = function() {
 	    		console.log($scope.paymentVoucher);
-	    		paymentVoucherService.generatePaymentVoucher(paymentVoucher).success(function() {
+	    		paymentVoucherService.generatePaymentVoucher($scope.paymentVoucher).success(function() {
 	    			console.log("success");
-	    			//$window.location.reload();
+	    			$state.go('home');
 	    			//$timeout(, 2000);
 
 	    		}).error(function(error) {
-	    			$scope.status = 'Unable to insert record: ' + error.message;
+	    			$scope.status = 'Unable to insert record: ' + error;
+	    			$state.go('errorPage');
 	    		});
 	    	};
 });

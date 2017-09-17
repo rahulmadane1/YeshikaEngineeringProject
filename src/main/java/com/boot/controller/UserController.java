@@ -44,17 +44,23 @@ public class UserController {
 	public String login(@PathParam(value = "username") String username, @PathParam(value = "password") String password) {
 		System.out.println("User :" + username);
 		System.out.println("Password :" + password);
-		List<User> userslist = userServiceImpl.findAllUsers();
-		for(User user : userslist){
-			if(user.getUsername().equals(username)){
-				if (null != getActualPassword(username) && password.equals(getActualPassword(username))) {
-					return username;
+		List<User> usersList = userServiceImpl.findAllUsers();
+		if(null != usersList && !usersList.isEmpty()){
+			for(User user : usersList){
+				if(user.getUsername().equals(username)){
+					if (null != getActualPassword(username) && password.equals(getActualPassword(username))) {
+						return username;
+					}
 				}
 			}
 		}
 		return "Failure";
 	}
 
+	/**fetched actual password for specified username
+	 * @param username
+	 * @return actualPassword
+	 */
 	private String getActualPassword(String username) {
 		Query q = entityManager.createNativeQuery("SELECT password FROM user_details WHERE username= :username");
 		q.setParameter("username", username);
@@ -62,6 +68,9 @@ public class UserController {
 		return actualPassword;
 	}
 
+	/**finds all registred users 
+	 * @return
+	 */
 	@RequestMapping(value = "getUsers", method = RequestMethod.GET)
 	public List<User> getUserList() {
 		return userServiceImpl.findAllUsers();

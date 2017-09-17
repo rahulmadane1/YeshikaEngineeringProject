@@ -5,16 +5,40 @@ package com.boot.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
- * @author Prashant
+ * @author Sushant
  *
  */
+
+@Entity
+@Table(name="PaymentVoucher",schema="reportgneration")
 public class PaymentVoucher {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="PaymentVoucherId")	
+    private	int paymentVoucherId;
+	
+	@Column(name="PRODUCT_DESC")
 	private String product_desc;
+	
+	@Column(name="HCS_ACS")
 	private String hcs_Acs;
+	
+	@Column(name="TAXABLE_VALUE")
 	private BigDecimal taxable_value;
+	
+	@Column(name="GST")
 	private int gst;
+	
+	@Column(name="TOTAL_AMOUNT")
 	private BigDecimal total_amount;
 	
 	/**
