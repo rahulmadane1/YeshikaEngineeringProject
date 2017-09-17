@@ -1,9 +1,11 @@
 app.factory('invoicedetailsservice', ['$http', function ($http) {
 
  var urlBase = 'http://localhost:8080/demoSpring';
- invoicedetailsservice.getinvoicedetails = function () {
-	 console.log("calling invoicedetailsservice.......")
-        return $http.post(urlBase + '/invoicedetails');
+ var inviocedetailsService = {};
+ inviocedetailsService.getinvoicedetails = function (invoicedata) {
+	 
+        return $http.post(urlBase + '/invoicedetails',invoicedata);
     };
 
+    return inviocedetailsService;
 }]);
