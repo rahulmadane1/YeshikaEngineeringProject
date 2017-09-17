@@ -64,9 +64,7 @@
 	text-decoration: none;
 }
 
-.form .register-form {
-	display: none;
-}
+
 
 .container {
 	position: relative;
@@ -123,22 +121,16 @@ body {
 <body ng-controller="homeController">
 	<div class="login-page">
 		<div class="form">
-
 			<form class="register-form">
 				<p class="message">
-					An error Occurred :(  Please try again !
-				</p>
-				<button onclick="gotoHomePage()">Ok</button>
+					An error Occurred. Please try again !!!
+				</p><br/><br/>
+				<button ng-click="goToHomePage()">Ok</button>
 			</form>
-		
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
-
-function gotoHomePage(){
-	window.location.href = "http://localhost:8080/demoSpring/home";
-}
 
 $('.message a').click(function(){
 	   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");

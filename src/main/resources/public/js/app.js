@@ -37,7 +37,13 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 		}).state('errorPage', {
 			url: "/",
 			templateUrl: viewsPrefix + "error.html",
+			controller:'homeController',
 			pageTitle: 'ErrorPage'
+		}).state('delivery_challan', {
+			url: "/",
+			templateUrl: viewsPrefix + "deliveryChallan.html",
+			controller:'deliverychallensCntrl',
+			pageTitle: 'Delivery Challan'
 		})		
 	    
 	})

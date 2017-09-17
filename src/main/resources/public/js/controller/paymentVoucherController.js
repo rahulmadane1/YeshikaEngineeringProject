@@ -48,8 +48,10 @@ app.controller('paymentVoucherController', function($scope, paymentVoucherServic
 	    		console.log($scope.paymentVoucher);
 	    		paymentVoucherService.generatePaymentVoucher($scope.paymentVoucher).success(function() {
 	    			console.log("success");
-	    			$state.go('home');
 	    			//$timeout(, 2000);
+	    			alert('Payment Voucher Added Successfully.')
+	    			$state.go('home');
+	    			
 
 	    		}).error(function(error) {
 	    			$scope.status = 'Unable to insert record: ' + error;
