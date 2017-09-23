@@ -45,5 +45,12 @@ public class PaymentVoucherController {
 		}		
 		return "Failure";
 	}
+	
+/*	@RequestMapping(value = "getPaymentVoucherDetails", method = RequestMethod.GET,produces = MediaType.TEXT_PLAIN_VALUE)
+	public List<PaymentVoucher> getPaymentVoucherDetails() {
+		
+		
+		return null;
+	}*/
 
 }

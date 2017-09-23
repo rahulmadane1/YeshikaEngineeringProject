@@ -4,8 +4,11 @@ app.factory('paymentVoucherService', ['$http', function ($http) {
     var paymentVoucherService = {};
     
     paymentVoucherService.generatePaymentVoucher = function (paymentVoucher) {
-    	console.log(paymentVoucher);
         return $http.post(urlBase + '/generatePaymentVoucher', paymentVoucher);
+    };
+    
+    paymentVoucherService.getPaymentVoucherDetails = function () {
+        return $http.get(urlBase + '/getPaymentVoucherDetails');
     };
    
     return paymentVoucherService;

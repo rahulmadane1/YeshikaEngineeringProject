@@ -22,8 +22,9 @@ public class PaymentVoucherImpl implements PaymentVoucherService{
 	
 	@Override
 	public PaymentVoucher save(PaymentVoucher paymentVoucher) {
-		
 		return paymentVoucherRepository.save(paymentVoucher);
 	}
+
+	
 
 }

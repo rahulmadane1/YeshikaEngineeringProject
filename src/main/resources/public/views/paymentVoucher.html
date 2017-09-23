@@ -119,66 +119,52 @@ body {
 }
 </style>
 </head>
-<body ng-controller="paymentVoucherController">
-
-<div class="">
-  <!-- <div class="form">
-  	
-    <form class="">
-      <input type="text" ng-model="productDesc" placeholder="Product Description"/>
-      <input type="text" ng-model="hcsAcn" placeholder="HCS ACN"/>
-      <input type="text" ng-model="taxableValue" placeholder="Taxable Value"/>
-      <input type="text" ng-model="gst" placeholder="GST"/>
-      <input type="text" ng-model="amountPaid" placeholder="Amount Paid"/>
-          
-      <button ng-click="generatePaymentVoucher()">Submit</button>  
-    </form>
-   
-  </div> -->
+<body ng-controller="paymentVoucherController">  
+ 
    <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <form ng-submit="addNew()">
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th><input type="checkbox" ng-model="payment.selectedAll" ng-click="checkAll()" /></th>
-                                        <th>Product Description</th>
-                                        <th>HCS ACN</th>
-                                        <th>Taxable Value</th>
-                                        <th>GST</th>
-                                        <th>Amount Paid</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="payment in paymentVoucher">
-                                        <td>
-                                            <input type="checkbox" ng-model="payment.selected"/></td>
-                                        <td>
-                                            <input type="text" class="form-control" ng-model="payment.product_desc" required/></td>
-                                        <td>
-                                            <input type="text" class="form-control" ng-model="payment.hcs_Acs" required/></td>
-                                        <td>
-                                            <input type="text" class="form-control" ng-model="payment.taxable_value" required/></td>
-                                        <td>
-                                            <input type="text" class="form-control" ng-model="payment.gst" required/></td>
-                                        <td>
-                                            <input type="text" class="form-control" ng-model="payment.total_amount" required/></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+     <div class="col-md-12">
+         <div class="panel panel-default">
+             <div class="panel-body">
+                 <form ng-submit="generatePaymentVoucher()">
+                     <table class="table table-striped table-bordered">
+                         <thead>
+                             <tr>
+                                 <th><input type="checkbox" ng-model="payment.selectedAll" ng-click="checkAll()" /></th>
+                                 <th>Product Description</th>
+                                 <th>HCS ACN</th>
+                                 <th>Taxable Value</th>
+                                 <th>GST</th>
+                                 <th>Amount Paid</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr ng-repeat="payment in paymentVoucher">
+                                 <td>
+                                     <input type="checkbox" ng-model="payment.selected"/></td>
+                                 <td>
+                                     <input type="text" class="form-control" ng-model="payment.product_desc" required/></td>
+                                 <td>
+                                     <input type="text" class="form-control" ng-model="payment.hcs_Acs" required/></td>
+                                 <td>
+                                     <input type="text" class="form-control" ng-model="payment.taxable_value" required/></td>
+                                 <td>
+                                     <input type="text" class="form-control" ng-model="payment.gst" required/></td>
+                                 <td>
+                                     <input type="text" class="form-control" ng-model="payment.total_amount" required/></td>
+                             </tr>
+                         </tbody>
+                     </table>
 
-                            <div class="form-group">
-                                <input ng-hide="!paymentVoucher.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove">
-                                <input type="submit" class="btn btn-primary addnew pull-right" value="Add New">
-                                <input type="submit" class="btn btn-submit pull-right" ng-click="generatePaymentVoucher()" value="Submit">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+                     <div class="form-group">
+                         <input ng-hide="!paymentVoucher.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove">
+                         <input type="button" class="btn btn-primary addnew pull-right" ng-click="addNew()" value="Add New">
+                         <input type="submit" class="btn btn-submit pull-right" value="Submit">
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+</div>
 </div>
 </body>
 <script type="text/javascript">

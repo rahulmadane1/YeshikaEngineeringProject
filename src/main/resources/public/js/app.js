@@ -17,30 +17,30 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 		.state('login', {
 			url: "/",
 			templateUrl: viewsPrefix + "login.html",
-			controller:'homeController',
+			controller:'loginController',
 			pageTitle: 'Login'
 		}).state('home', {
-			url: "/",
+			url: "/home/:userName",
 			templateUrl: viewsPrefix + "home.html",
 			controller:'homeController',
 			pageTitle: 'Home'
 		}).state('invoicedetails', {
-			url: "/",
+			url: "/invoiceDetails",
 			templateUrl: viewsPrefix + "invoicedetails.html",
 			controller:'invoicedetailsCntrl',
 			pageTitle: 'invoice'
 		}).state('paymentVoucher', {
-			url: "/",
+			url: "/paymentVoucher",
 			templateUrl: viewsPrefix + "paymentVoucher.html",
 			controller:'paymentVoucherController',
 			pageTitle: 'PaymentVoucher'
 		}).state('errorPage', {
-			url: "/",
+			url: "/errorPage",
 			templateUrl: viewsPrefix + "error.html",
 			controller:'homeController',
 			pageTitle: 'ErrorPage'
 		}).state('delivery_challan', {
-			url: "/",
+			url: "/deliveryChallan",
 			templateUrl: viewsPrefix + "deliveryChallan.html",
 			controller:'deliverychallensCntrl',
 			pageTitle: 'Delivery Challan'

@@ -19,20 +19,44 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.btn-links{
+	display: inline-block;
+    padding: 8px 23px;
+    margin-bottom: 0;
+    margin-right: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
 </style>
 </head>
 <body ng-controller="homeController">
 <div class="">
   <div class="">
-   Hello...
+   Hello {{loggedInUserName}}
    <div class="container">
-	  <button type="button" ng-click="invoicebtn()" class="btn">Invoice</button>
-	  <button type="button" ng-click="exportinvoicebtn()" class="btn btn-default">Export Invoice</button>
-	  <button type="button" ng-click="goTodeliverychallen()" class="btn btn-primary">Delivery Challen</button>
+   <br/> <br/> <br/> <br/> <br/>
+   
+	  <button type="button" ng-click="invoicebtn()" class="btn-links">Invoice</button>
+	  <!-- <button type="button" ng-click="exportinvoicebtn()" class="btn btn-default">Export Invoice</button> -->
+	  <button type="button" ng-click="goTodeliverychallen()" class="btn-links btn-primary">Delivery Challan</button>
 	  <!--<button type="button" class="btn btn-success">Success</button>--> 
-	  <button type="button" ng-click="receiptvoucherbtn()" class="btn btn-info">Receipt Voucher</button>
-	  <button type="button" ng-click="goToPaymentVoucher()" class="btn btn-warning">Payment Voucher</button>
-	  <button type="button" ng-click="refundvoucher()" class="btn btn-danger">Refund Voucher</button>
+	 <!--  <button type="button" ng-click="receiptvoucherbtn()" class="btn btn-info">Receipt Voucher</button> -->
+	  <button type="button" ng-click="goToPaymentVoucher()" class="btn-links btn-warning">Payment Voucher</button>
+	  <!-- <button type="button" ng-click="refundvoucher()" class="btn btn-danger">Refund Voucher</button> -->
 	 <!-- <button type="button" class="btn btn-link">Link</button>   --> 
 	  </div>
   </div>
