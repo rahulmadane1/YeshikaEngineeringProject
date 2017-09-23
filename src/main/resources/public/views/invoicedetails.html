@@ -71,6 +71,8 @@ body {
 </head>
 <body ng-controller="invoicedetailsCntrl">
 
+  
+
 <div class="">
 
    <div class="row">
@@ -106,7 +108,14 @@ body {
                                             <input type="text" class="form-control" ng-model="invoice.rate" required/></td>
                                         <td>
                                             <input type="text" class="form-control" ng-model="invoice.amount" required/></td>
-                                    </tr>
+                                            
+                                             <td> 
+   <input type="text" class="form-control" placeholder="Custmer Name" ng-model="invoice.customer.CustmerName" required/></td>
+   <td> 
+   <input type="text" class="form-control" placeholder="Custmer Addresss" ng-model="invoice.customer.Address" required/></td>
+                                        
+  </tr>
+                                  
                                 </tbody>
                             </table>
 

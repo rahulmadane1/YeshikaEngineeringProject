@@ -1,14 +1,18 @@
 package com.boot.model;
 
 
-import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="InvoiceDetails")
@@ -18,6 +22,10 @@ public class InvoiceDetails {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="invoiceid")
 	private int invoiceid;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn (name="CUSTOMER_ID")
+	private Customer customer;
 	
 	@Column(name="CompanyName")
 	private String CompanyName;
@@ -56,7 +64,7 @@ public class InvoiceDetails {
 	private Long  PartyChallanDate;  
 	
 	@Column(name="invoicedate")
-	private Date  invoicedate;   
+	private String  invoicedate;   
 	
 	@Column(name="Quantity")
 	private Long  quantity;     
@@ -75,6 +83,16 @@ public class InvoiceDetails {
 	
 	@Column(name="InvType")
 	private Long  InvType;
+
+	
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 	public int getInvoiceid() {
 		return invoiceid;
@@ -180,11 +198,11 @@ public class InvoiceDetails {
 		PartyChallanDate = partyChallanDate;
 	}
 
-	public Date getInvoicedate() {
+	public String getInvoicedate() {
 		return invoicedate;
 	}
 
-	public void setInvoicedate(Date invoicedate) {
+	public void setInvoicedate(String invoicedate) {
 		this.invoicedate = invoicedate;
 	}
 
@@ -238,15 +256,18 @@ public class InvoiceDetails {
 
 	@Override
 	public String toString() {
-		return "InvoiceDetails [invoiceid=" + invoiceid + ", CompanyName=" + CompanyName + ", CustId=" + CustId
-				+ ", CustName=" + CustName + ", SrNo=" + SrNo + ", product=" + product + ", ItemName=" + ItemName
-				+ ", Rate=" + Rate + ", InvoiceNo=" + InvoiceNo + ", ItemCode=" + ItemCode + ", PartyChallanNo="
-				+ PartyChallanNo + ", particular=" + particular + ", PartyChallanDate=" + PartyChallanDate
-				+ ", invoicedate=" + invoicedate + ", quantity=" + quantity + ", challandnum=" + challandnum
-				+ ", Amount=" + Amount + ", Paid=" + Paid + ", Total=" + Total + ", InvType=" + InvType + "]";
+		return "InvoiceDetails [invoiceid=" + invoiceid + ", customer=" + customer + ", CompanyName=" + CompanyName
+				+ ", CustId=" + CustId + ", CustName=" + CustName + ", SrNo=" + SrNo + ", product=" + product
+				+ ", ItemName=" + ItemName + ", Rate=" + Rate + ", InvoiceNo=" + InvoiceNo + ", ItemCode=" + ItemCode
+				+ ", PartyChallanNo=" + PartyChallanNo + ", particular=" + particular + ", PartyChallanDate="
+				+ PartyChallanDate + ", invoicedate=" + invoicedate + ", quantity=" + quantity + ", challandnum="
+				+ challandnum + ", Amount=" + Amount + ", Paid=" + Paid + ", Total=" + Total + ", InvType=" + InvType
+				+ "]";
 	}
+
 	
-	
+
+
 	
 
 }

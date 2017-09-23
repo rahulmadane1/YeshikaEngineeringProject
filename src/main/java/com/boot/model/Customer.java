@@ -13,130 +13,67 @@ public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="CompanyName")
-	private String CompanyName;
-	
-	@Column(name="CustType")
-	private String CustType;
-	
-	@Column(name="CustId")
-	private int CustId;
-	
-	@Column(name="PartyCode")
-	private Long PartyCode;
+	@Column(name="Custmerid")
+	private Integer CustmerId;
 	
 	@Column(name="CustName")
-	private String CustName;
+	private String CustmerName;
 	
-	@Column(name="Add1")
-	private String Add1;
+	@Column(name="phoneNum")
+	private String Phone;
 	
-	@Column(name="PhoneOffice1")
-	private String PhoneOffice1;
+	@Column(name="Address")
+	private String Address;
 	
-	@Column(name="User")
-	private String User;
-	
-	@Column(name="Status")
-	private String Status;
-	
-	@Column(name="VATApply")
-	private String VATApply;
-	
-	@Column(name="VATPer")
-	private String VATPer;
-	
-	@Column(name="PONo")
-	private Long  PONo;
-	
-	@Column(name="VendorCode")
-	private Long  VendorCode;
-	
-	
-	public String getCompanyName() {
-		return CompanyName;
+	@Column(name="email")
+	private String Email;
+
+	public Integer getCustmerId() {
+		return CustmerId;
 	}
-	public void setCompanyName(String companyName) {
-		CompanyName = companyName;
+
+	public void setCustmerId(Integer custmerId) {
+		CustmerId = custmerId;
 	}
-	public String getCustType() {
-		return CustType;
+
+	public String getCustmerName() {
+		return CustmerName;
 	}
-	public void setCustType(String custType) {
-		CustType = custType;
+
+	public void setCustmerName(String custmerName) {
+		CustmerName = custmerName;
 	}
-	public int getCustId() {
-		return CustId;
+
+	public String getPhone() {
+		return Phone;
 	}
-	public void setCustId(int custId) {
-		CustId = custId;
+
+	public void setPhone(String phone) {
+		Phone = phone;
 	}
-	public Long getPartyCode() {
-		return PartyCode;
+
+	public String getAddress() {
+		return Address;
 	}
-	public void setPartyCode(Long partyCode) {
-		PartyCode = partyCode;
+
+	public void setAddress(String address) {
+		Address = address;
 	}
-	public String getCustName() {
-		return CustName;
+
+	public String getEmail() {
+		return Email;
 	}
-	public void setCustName(String custName) {
-		CustName = custName;
+
+	public void setEmail(String email) {
+		Email = email;
 	}
-	public String getAdd1() {
-		return Add1;
-	}
-	public void setAdd1(String add1) {
-		Add1 = add1;
-	}
-	public String getPhoneOffice1() {
-		return PhoneOffice1;
-	}
-	public void setPhoneOffice1(String phoneOffice1) {
-		PhoneOffice1 = phoneOffice1;
-	}
-	public String getUser() {
-		return User;
-	}
-	public void setUser(String user) {
-		User = user;
-	}
-	public String getStatus() {
-		return Status;
-	}
-	public void setStatus(String status) {
-		Status = status;
-	}
-	public String getVATApply() {
-		return VATApply;
-	}
-	public void setVATApply(String vATApply) {
-		VATApply = vATApply;
-	}
-	public String getVATPer() {
-		return VATPer;
-	}
-	public void setVATPer(String vATPer) {
-		VATPer = vATPer;
-	}
-	public Long getPONo() {
-		return PONo;
-	}
-	public void setPONo(Long pONo) {
-		PONo = pONo;
-	}
-	public Long getVendorCode() {
-		return VendorCode;
-	}
-	public void setVendorCode(Long vendorCode) {
-		VendorCode = vendorCode;
-	}
+
 	@Override
 	public String toString() {
-		return "Customer [CompanyName=" + CompanyName + ", CustType=" + CustType + ", CustId=" + CustId + ", PartyCode="
-				+ PartyCode + ", CustName=" + CustName + ", Add1=" + Add1 + ", PhoneOffice1=" + PhoneOffice1 + ", User="
-				+ User + ", Status=" + Status + ", VATApply=" + VATApply + ", VATPer=" + VATPer + ", PONo=" + PONo
-				+ ", VendorCode=" + VendorCode + "]";
+		return "Customer [CustmerId=" + CustmerId + ", CustmerName=" + CustmerName + ", Phone=" + Phone + ", Address="
+				+ Address + ", Email=" + Email + "]";
 	}
-		
+
+	
+	
 }

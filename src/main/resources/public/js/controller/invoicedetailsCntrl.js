@@ -13,8 +13,13 @@ app.controller('invoicedetailsCntrl', function($scope,$filter,$state,invoicedeta
                 'challandnum': "",
                 'quantity': "",
                 'rate': "",
-                'amount': ""
+                'amount': "",
+                	'CustmerName':"",
+                	'Address':""
+                	
+                	
             });
+           
             $scope.PD = {};
         };
     
@@ -45,6 +50,8 @@ app.controller('invoicedetailsCntrl', function($scope,$filter,$state,invoicedeta
 	$scope.createinvoicedetails=function () {	
 		
 		console.log($scope.invoicedetails);
+		console.log($scope.invoicedetails[0].particular);
+		console.log($scope.invoicedetails[0].customer.CustmerName);
 		
 		invoicedetailsservice.getinvoicedetails($scope.invoicedetails).success(function() {
 			
