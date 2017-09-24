@@ -12,8 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-
 @Entity
 @Table(name="InvoiceDetails")
 public class InvoiceDetails {
@@ -27,44 +25,13 @@ public class InvoiceDetails {
 	@JoinColumn (name="CUSTOMER_ID")
 	private Customer customer;
 	
-	@Column(name="CompanyName")
-	private String CompanyName;
-	
-	@Column(name="CustId")
-	private String CustId;
-	
-	@Column(name="CustName")
-	private String CustName;
-	
-	@Column(name="SrNo")
-	private Long  SrNo;
-	
-	@Column(name="product")
-	private String product;
-	
-	@Column(name="ItemName")
-	private String ItemName;
 	
 	@Column(name="Rate")
 	private Long Rate;
 	
-	@Column(name="InvoiceNo")
-	private Long  InvoiceNo;
-	
-	@Column(name="ItemCode")
-	private Long  ItemCode;
-	
-	@Column(name="PartyChallanNo")
-	private Long  PartyChallanNo;
-	
+
 	@Column(name="particular")
 	private String particular;
-	
-	@Column(name="PartyChallanDate")
-	private Long  PartyChallanDate;  
-	
-	@Column(name="invoicedate")
-	private String  invoicedate;   
 	
 	@Column(name="Quantity")
 	private Long  quantity;     
@@ -74,200 +41,117 @@ public class InvoiceDetails {
 	
 	@Column(name="Amount")
 	private Long  Amount;
-	
-	@Column(name="Paid")
-	private Long  Paid;
-	
-	@Column(name="Total")
-	private Long  Total;
-	
-	@Column(name="InvType")
-	private Long  InvType;
 
-	
-	
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
+	/**
+	 * @return the invoiceid
+	 */
 	public int getInvoiceid() {
 		return invoiceid;
 	}
 
+	/**
+	 * @param invoiceid the invoiceid to set
+	 */
 	public void setInvoiceid(int invoiceid) {
 		this.invoiceid = invoiceid;
 	}
 
-	public String getCompanyName() {
-		return CompanyName;
+	/**
+	 * @return the customer
+	 */
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setCompanyName(String companyName) {
-		CompanyName = companyName;
+	/**
+	 * @param customer the customer to set
+	 */
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
-	public String getCustId() {
-		return CustId;
-	}
-
-	public void setCustId(String custId) {
-		CustId = custId;
-	}
-
-	public String getCustName() {
-		return CustName;
-	}
-
-	public void setCustName(String custName) {
-		CustName = custName;
-	}
-
-	public Long getSrNo() {
-		return SrNo;
-	}
-
-	public void setSrNo(Long srNo) {
-		SrNo = srNo;
-	}
-
-	public String getProduct() {
-		return product;
-	}
-
-	public void setProduct(String product) {
-		this.product = product;
-	}
-
-	public String getItemName() {
-		return ItemName;
-	}
-
-	public void setItemName(String itemName) {
-		ItemName = itemName;
-	}
-
+	/**
+	 * @return the rate
+	 */
 	public Long getRate() {
 		return Rate;
 	}
 
+	/**
+	 * @param rate the rate to set
+	 */
 	public void setRate(Long rate) {
 		Rate = rate;
 	}
 
-	public Long getInvoiceNo() {
-		return InvoiceNo;
-	}
-
-	public void setInvoiceNo(Long invoiceNo) {
-		InvoiceNo = invoiceNo;
-	}
-
-	public Long getItemCode() {
-		return ItemCode;
-	}
-
-	public void setItemCode(Long itemCode) {
-		ItemCode = itemCode;
-	}
-
-	public Long getPartyChallanNo() {
-		return PartyChallanNo;
-	}
-
-	public void setPartyChallanNo(Long partyChallanNo) {
-		PartyChallanNo = partyChallanNo;
-	}
-
+	/**
+	 * @return the particular
+	 */
 	public String getParticular() {
 		return particular;
 	}
 
+	/**
+	 * @param particular the particular to set
+	 */
 	public void setParticular(String particular) {
 		this.particular = particular;
 	}
 
-	public Long getPartyChallanDate() {
-		return PartyChallanDate;
-	}
-
-	public void setPartyChallanDate(Long partyChallanDate) {
-		PartyChallanDate = partyChallanDate;
-	}
-
-	public String getInvoicedate() {
-		return invoicedate;
-	}
-
-	public void setInvoicedate(String invoicedate) {
-		this.invoicedate = invoicedate;
-	}
-
+	/**
+	 * @return the quantity
+	 */
 	public Long getQuantity() {
 		return quantity;
 	}
 
+	/**
+	 * @param quantity the quantity to set
+	 */
 	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
 
+	/**
+	 * @return the challandnum
+	 */
 	public Long getChallandnum() {
 		return challandnum;
 	}
 
+	/**
+	 * @param challandnum the challandnum to set
+	 */
 	public void setChallandnum(Long challandnum) {
 		this.challandnum = challandnum;
 	}
 
+	/**
+	 * @return the amount
+	 */
 	public Long getAmount() {
 		return Amount;
 	}
 
+	/**
+	 * @param amount the amount to set
+	 */
 	public void setAmount(Long amount) {
 		Amount = amount;
 	}
 
-	public Long getPaid() {
-		return Paid;
-	}
-
-	public void setPaid(Long paid) {
-		Paid = paid;
-	}
-
-	public Long getTotal() {
-		return Total;
-	}
-
-	public void setTotal(Long total) {
-		Total = total;
-	}
-
-	public Long getInvType() {
-		return InvType;
-	}
-
-	public void setInvType(Long invType) {
-		InvType = invType;
-	}
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "InvoiceDetails [invoiceid=" + invoiceid + ", customer=" + customer + ", CompanyName=" + CompanyName
-				+ ", CustId=" + CustId + ", CustName=" + CustName + ", SrNo=" + SrNo + ", product=" + product
-				+ ", ItemName=" + ItemName + ", Rate=" + Rate + ", InvoiceNo=" + InvoiceNo + ", ItemCode=" + ItemCode
-				+ ", PartyChallanNo=" + PartyChallanNo + ", particular=" + particular + ", PartyChallanDate="
-				+ PartyChallanDate + ", invoicedate=" + invoicedate + ", quantity=" + quantity + ", challandnum="
-				+ challandnum + ", Amount=" + Amount + ", Paid=" + Paid + ", Total=" + Total + ", InvType=" + InvType
-				+ "]";
+		return "InvoiceDetails [invoiceid=" + invoiceid + ", customer=" + customer + ", Rate=" + Rate + ", particular="
+				+ particular + ", quantity=" + quantity + ", challandnum=" + challandnum + ", Amount=" + Amount + "]";
 	}
 
+
 	
-
-
+	
 	
 
 }

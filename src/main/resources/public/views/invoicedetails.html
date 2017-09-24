@@ -78,14 +78,45 @@ body {
    <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-body">
-                        <form ng-submit="addNew()">
+                 <div class="panel-body">
+                 <form ng-submit="createinvoicedetails()">
+                 <h3>Invoice</h3>
+   				 <h4>Customer Details:</h4>
+                 <table class="table" style="border-top:0px">
+	                 <thead>
+		                 <tr>
+			                 <th></th>
+			                 <th></th>
+		                 </tr>
+	                 </thead>
+	                 <tbody>
+		                 <tr><td style="padding-top: 16px">Customer name: </td>
+			                 <td>
+      							 <input placeholder="" type="text" class="form-control" ng-model="customer.customerName" style="padding: '6px 133px';width: '50%';" required autofocus>
+			                 </td>
+			                 <td style="padding-top: 16px">Customer address: </td>
+			                  <td>
+		      					<input placeholder="" type="text" class="form-control" ng-model="customer.address" style="padding: '6px 133px';width: '50%';"  required autofocus>
+			                 </td>
+		                 </tr>
+		                  <tr>
+		                   <td style="padding-top: 16px">Customer contact: </td>
+			                 <td>
+	      						 <input placeholder="" type="text" class="form-control" ng-model="customer.contact" style="padding: '6px 133px';width: '50%';"  required autofocus>
+			                 </td>
+			                 <td style="padding-top: 16px">Customer email: </td>
+			                 <td>
+			      				<input placeholder="" type="text" class="form-control" ng-model="customer.email" style="padding: '6px 133px';width: '50%';" required autofocus>
+			                 </td>
+		                 </tr>
+	                 </tbody>
+                 </table>
                             <table class="table table-striped table-bordered">
                                 <thead>
                                   <tr>                                                                                               
                                         <th><input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" /></th>
                                         <th>Particulars</th>
-                                        <th>Date</th>
+                                       <!--  <th>Date</th> -->
                                         <th>Challan.No</th>
                                         <th>Quantity</th>
                                         <th>Rate</th>
@@ -98,8 +129,8 @@ body {
                                             <input type="checkbox" ng-model="invoice.selected"/></td>
                                         <td>
                                             <input type="text" class="form-control" ng-model="invoice.particular" required/></td>
-                                        <td>
-                                            <input type="date" class="form-control" ng-model="invoice.invoicedate" required/></td>
+                                       <!--  <td>
+                                            <input type="date" class="form-control" ng-model="invoice.invoicedate" required/></td> -->
                                         <td>
                                             <input type="text" class="form-control" ng-model="invoice.challandnum" required/></td>
                                         <td>
@@ -107,22 +138,15 @@ body {
                                         <td>
                                             <input type="text" class="form-control" ng-model="invoice.rate" required/></td>
                                         <td>
-                                            <input type="text" class="form-control" ng-model="invoice.amount" required/></td>
-                                            
-                                             <td> 
-   <input type="text" class="form-control" placeholder="Custmer Name" ng-model="invoice.customer.CustmerName" required/></td>
-   <td> 
-   <input type="text" class="form-control" placeholder="Custmer Addresss" ng-model="invoice.customer.Address" required/></td>
-                                        
-  </tr>
-                                  
+                                            <input type="text" class="form-control" ng-model="invoice.amount" required/></td>                                  
+  									</tr>
                                 </tbody>
                             </table>
 
                             <div class="form-group">
                                 <input ng-hide="!invoicedetails.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove">
-                                <input type="submit" class="btn btn-primary addnew pull-right" value="Add New">
-                                <input type="button" ng-click="createinvoicedetails()" class="btn btn-submit pull-right" value="Submit">
+                                <input type="button" ng-click="addNew()" class="btn btn-primary addnew pull-right" value="Add New">
+                                <input type="submit" class="btn btn-submit pull-right" value="Submit">
                             </div>
                         </form>
                     </div>

@@ -8,72 +8,104 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Customer")
+@Table(name="Customer",schema="reportgneration")
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="Custmerid")
-	private Integer CustmerId;
+	@Column(name="Customer_Id")
+	private int custmerId;
 	
-	@Column(name="CustName")
-	private String CustmerName;
+	@Column(name="Customer_Name")
+	private String customerName;
 	
-	@Column(name="phoneNum")
-	private String Phone;
+	@Column(name="Contact")
+	private String contact;
 	
 	@Column(name="Address")
-	private String Address;
+	private String address;
 	
-	@Column(name="email")
-	private String Email;
+	@Column(name="Email")
+	private String email;
 
-	public Integer getCustmerId() {
-		return CustmerId;
+	/**
+	 * @return the custmerId
+	 */
+	public int getCustmerId() {
+		return custmerId;
 	}
 
-	public void setCustmerId(Integer custmerId) {
-		CustmerId = custmerId;
+	/**
+	 * @param custmerId the custmerId to set
+	 */
+	public void setCustmerId(int custmerId) {
+		this.custmerId = custmerId;
 	}
 
-	public String getCustmerName() {
-		return CustmerName;
+	/**
+	 * @return the customerName
+	 */
+	public String getCustomerName() {
+		return customerName;
 	}
 
-	public void setCustmerName(String custmerName) {
-		CustmerName = custmerName;
+	/**
+	 * @param customerName the customerName to set
+	 */
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 
-	public String getPhone() {
-		return Phone;
+	/**
+	 * @return the contact
+	 */
+	public String getContact() {
+		return contact;
 	}
 
-	public void setPhone(String phone) {
-		Phone = phone;
+	/**
+	 * @param contact the contact to set
+	 */
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
+	/**
+	 * @return the address
+	 */
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
+	/**
+	 * @param address the address to set
+	 */
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
+	/**
+	 * @return the email
+	 */
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
+	/**
+	 * @param email the email to set
+	 */
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "Customer [CustmerId=" + CustmerId + ", CustmerName=" + CustmerName + ", Phone=" + Phone + ", Address="
-				+ Address + ", Email=" + Email + "]";
+		return "Customer [custmerId=" + custmerId + ", customerName=" + customerName + ", contact=" + contact
+				+ ", address=" + address + ", email=" + email + "]";
 	}
 
-	
 	
 }

@@ -14,10 +14,6 @@ app.controller('invoicedetailsCntrl', function($scope,$filter,$state,invoicedeta
                 'quantity': "",
                 'rate': "",
                 'amount': "",
-                	'CustmerName':"",
-                	'Address':""
-                	
-                	
             });
            
             $scope.PD = {};
@@ -46,15 +42,12 @@ app.controller('invoicedetailsCntrl', function($scope,$filter,$state,invoicedeta
                 invoicedetails.selected = $scope.selectedAll;
             });
         };
-	
-	$scope.createinvoicedetails=function () {	
-		
-		console.log($scope.invoicedetails);
-		console.log($scope.invoicedetails[0].particular);
-		console.log($scope.invoicedetails[0].customer.CustmerName);
-		
-		invoicedetailsservice.getinvoicedetails($scope.invoicedetails).success(function() {
-			
+        $scope.invoiceContext={};
+	$scope.createinvoicedetails=function () {
+		$scope.invoiceContext.invoiceDetailsList=$scope.invoicedetails;
+		$scope.invoiceContext.customer=$scope.customer;
+		console.log($scope.invoiceContext);
+		invoicedetailsservice.getinvoicedetails($scope.invoiceContext).success(function() {
 		}).error(function(error) {
 			console.log("Unable to insert invoice data: " + error);
 		});
