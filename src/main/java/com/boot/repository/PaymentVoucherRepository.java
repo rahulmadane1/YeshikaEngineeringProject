@@ -11,6 +11,6 @@ import com.boot.model.PaymentVoucher;
  * @author Sushant
  *
  */
-public interface PaymentVoucherRepository extends JpaRepository<PaymentVoucher, Long>{
+public interface PaymentVoucherRepository extends JpaRepository<PaymentVoucher, Integer>{
 
 }

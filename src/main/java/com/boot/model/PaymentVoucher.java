@@ -5,11 +5,14 @@ package com.boot.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,7 +27,12 @@ public class PaymentVoucher {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="PaymentVoucherId")	
-    private	int paymentVoucherId;
+    private	Integer paymentVoucherId;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn (name="CUSTOMER_ID")
+	private Customer customer;
+	
 	
 	@Column(name="PRODUCT_DESC")
 	private String product_desc;
@@ -40,6 +48,8 @@ public class PaymentVoucher {
 	
 	@Column(name="TOTAL_AMOUNT")
 	private BigDecimal total_amount;
+	
+	
 	
 	/**
 	 * @return the product_desc
@@ -101,12 +111,41 @@ public class PaymentVoucher {
 	public void setTotal_amount(BigDecimal total_amount) {
 		this.total_amount = total_amount;
 	}
+	
+	/**
+	 * @return the paymentVoucherId
+	 */
+	public Integer getPaymentVoucherId() {
+		return paymentVoucherId;
+	}
+	/**
+	 * @param paymentVoucherId the paymentVoucherId to set
+	 */
+	public void setPaymentVoucherId(Integer paymentVoucherId) {
+		this.paymentVoucherId = paymentVoucherId;
+	}
+	/**
+	 * @return the customer
+	 */
+	public Customer getCustomer() {
+		return customer;
+	}
+	/**
+	 * @param customer the customer to set
+	 */
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "PaymentVoucher [product_desc=" + product_desc + ", hcs_Acs=" + hcs_Acs + ", taxable_value="
-				+ taxable_value + ", gst=" + gst + ", total_amount=" + total_amount + "]";
+		return "PaymentVoucher [paymentVoucherId=" + paymentVoucherId + ", customer=" + customer + ", product_desc="
+				+ product_desc + ", hcs_Acs=" + hcs_Acs + ", taxable_value=" + taxable_value + ", gst=" + gst
+				+ ", total_amount=" + total_amount + "]";
 	}
+	
+	
+	
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import com.boot.model.Customer;
 import com.boot.model.DeliveryChallan;
 import com.boot.model.InvoiceDetails;
+import com.boot.model.PaymentVoucher;
 
 /**
  * @author Sushant
@@ -20,6 +21,10 @@ public class InvoiceContext {
 	public List<InvoiceDetails> invoiceDetailsList;
 	
 	public List<DeliveryChallan> deliveryChallanList;
+	
+	public List<PaymentVoucher> paymentVoucherlist;
+	
+	
 
 	/**
 	 * @return the customer
@@ -58,10 +63,42 @@ public class InvoiceContext {
 		this.deliveryChallanList = deliveryChallan;
 	}
 
+	
+	/**
+	 * @return the deliveryChallanList
+	 */
+	public List<DeliveryChallan> getDeliveryChallanList() {
+		return deliveryChallanList;
+	}
+
+	/**
+	 * @param deliveryChallanList the deliveryChallanList to set
+	 */
+	public void setDeliveryChallanList(List<DeliveryChallan> deliveryChallanList) {
+		this.deliveryChallanList = deliveryChallanList;
+	}
+
+	/**
+	 * @return the paymentVoucherlist
+	 */
+	public List<PaymentVoucher> getPaymentVoucherlist() {
+		return paymentVoucherlist;
+	}
+
+	/**
+	 * @param paymentVoucherlist the paymentVoucherlist to set
+	 */
+	public void setPaymentVoucherlist(List<PaymentVoucher> paymentVoucherlist) {
+		this.paymentVoucherlist = paymentVoucherlist;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "InvoiceContext [customer=" + customer + ", invoiceDetailsList=" + invoiceDetailsList
-				+ ", deliveryChallan=" + deliveryChallanList + "]";
+				+ ", deliveryChallanList=" + deliveryChallanList + ", paymentVoucherlist=" + paymentVoucherlist + "]";
 	}
 
 	
