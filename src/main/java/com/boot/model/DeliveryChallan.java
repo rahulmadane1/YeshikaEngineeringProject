@@ -1,10 +1,13 @@
 package com.boot.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,149 +16,93 @@ public class DeliveryChallan {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="invoiceid")
-	private int invoiceid;
+	@Column(name="Delivery_Challan_Id")
+	private int deliveryChallanid;;
 	
-	@Column(name="CompanyName")
-	private String CompanyName;
-	
-	@Column(name="CustId")
-	private String CustId;
-	
-	@Column(name="CustName")
-	private String CustName;
-	
-	@Column(name="SrNo")
-	private Long  SrNo;
-	
-	@Column(name="product")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn (name="CUSTOMER_ID")
+	private Customer customer;
+
+	@Column(name="Product")
 	private String product;
+
+	@Column(name="Challan_No")
+	private int challan_No;
 	
-	@Column(name="ItemName")
-	private String ItemName;
-	
-	@Column(name="InvoiceNo")
-	private Long  InvoiceNo;
-	
-	@Column(name="ItemCode")
-	private Long  ItemCode;
-	
-	@Column(name="PartyChallanNo")
-	private Long PartyChallanNo;
-	
-	@Column(name="PartyChallanDate")
-	private String PartyChallanDate;
-	
-	@Column(name="Qty")
-	private Long Qty;
-	
-	@Column(name="Paid")
-	private Long  Paid;
-	
-	@Column(name="Total")
-	private Long  Total;
-	
-	@Column(name="InvType")
-	private Long  InvType;
-	
-	public int getInvoiceid() {
-		return invoiceid;
+	@Column(name="Quantity")
+	private int quantity;
+
+	/**
+	 * @return the deliveryChallanid
+	 */
+	public int getDeliveryChallanid() {
+		return deliveryChallanid;
 	}
-	public void setInvoiceid(int invoiceid) {
-		this.invoiceid = invoiceid;
+
+	/**
+	 * @param deliveryChallanid the deliveryChallanid to set
+	 */
+	public void setDeliveryChallanid(int deliveryChallanid) {
+		this.deliveryChallanid = deliveryChallanid;
 	}
-	public String getCompanyName() {
-		return CompanyName;
+
+	/**
+	 * @return the customer
+	 */
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setCompanyName(String companyName) {
-		CompanyName = companyName;
+
+	/**
+	 * @param customer the customer to set
+	 */
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
-	public String getCustId() {
-		return CustId;
-	}
-	public void setCustId(String custId) {
-		CustId = custId;
-	}
-	public String getCustName() {
-		return CustName;
-	}
-	public void setCustName(String custName) {
-		CustName = custName;
-	}
-	public Long getSrNo() {
-		return SrNo;
-	}
-	public void setSrNo(Long srNo) {
-		SrNo = srNo;
-	}
+
+	/**
+	 * @return the product
+	 */
 	public String getProduct() {
 		return product;
 	}
+
+	/**
+	 * @param product the product to set
+	 */
 	public void setProduct(String product) {
 		this.product = product;
 	}
-	public String getItemName() {
-		return ItemName;
-	}
-	public void setItemName(String itemName) {
-		ItemName = itemName;
-	}
-	
-	public Long getInvoiceNo() {
-		return InvoiceNo;
-	}
-	public void setInvoiceNo(Long invoiceNo) {
-		InvoiceNo = invoiceNo;
-	}
-	public Long getItemCode() {
-		return ItemCode;
-	}
-	public void setItemCode(Long itemCode) {
-		ItemCode = itemCode;
-	}
-	public Long getPartyChallanNo() {
-		return PartyChallanNo;
-	}
-	public void setPartyChallanNo(Long partyChallanNo) {
-		PartyChallanNo = partyChallanNo;
-	}
-	public String getPartyChallanDate() {
-		return PartyChallanDate;
-	}
-	public void setPartyChallanDate(String partyChallanDate) {
-		PartyChallanDate = partyChallanDate;
-	}
-	public Long getQty() {
-		return Qty;
-	}
-	public void setQty(Long qty) {
-		Qty = qty;
+
+	/**
+	 * @return the challan_No
+	 */
+	public int getChallan_No() {
+		return challan_No;
 	}
 
-	public Long getPaid() {
-		return Paid;
+	/**
+	 * @param challan_No the challan_No to set
+	 */
+	public void setChallan_No(int challan_No) {
+		this.challan_No = challan_No;
 	}
-	public void setPaid(Long paid) {
-		Paid = paid;
+
+	/**
+	 * @return the quantity
+	 */
+	public int getQuantity() {
+		return quantity;
 	}
-	public Long getTotal() {
-		return Total;
+
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
-	public void setTotal(Long total) {
-		Total = total;
-	}
-	public Long getInvType() {
-		return InvType;
-	}
-	public void setInvType(Long invType) {
-		InvType = invType;
-	}
-	@Override
-	public String toString() {
-		return "Invoice [invoiceid=" + invoiceid + ", CompanyName=" + CompanyName + ", CustId=" + CustId + ", CustName="
-				+ CustName + ", SrNo=" + SrNo + ", product=" + product + ", ItemName=" + ItemName + ", InvoiceNo=" + InvoiceNo + ", ItemCode=" + ItemCode + ", PartyChallanNo=" + PartyChallanNo
-				+ ", PartyChallanDate=" + PartyChallanDate + ", Qty=" + Qty + ", Paid=" + Paid
-				+ ", Total=" + Total + ", InvType=" + InvType + "]";
-	}
-		
+
+	
+
+	
 }

@@ -6,6 +6,7 @@ package com.boot.context;
 import java.util.List;
 
 import com.boot.model.Customer;
+import com.boot.model.DeliveryChallan;
 import com.boot.model.InvoiceDetails;
 
 /**
@@ -17,6 +18,8 @@ public class InvoiceContext {
 	public Customer customer;
 	
 	public List<InvoiceDetails> invoiceDetailsList;
+	
+	public List<DeliveryChallan> deliveryChallanList;
 
 	/**
 	 * @return the customer
@@ -46,13 +49,22 @@ public class InvoiceContext {
 		this.invoiceDetailsList = invoiceDetailsList;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
+	public List<DeliveryChallan> getDeliveryChallan() {
+		return deliveryChallanList;
+	}
+
+	public void setDeliveryChallan(List<DeliveryChallan> deliveryChallan) {
+		this.deliveryChallanList = deliveryChallan;
+	}
+
 	@Override
 	public String toString() {
-		return "InvoiceContext [customer=" + customer + ", invoiceDetailsList=" + invoiceDetailsList + "]";
+		return "InvoiceContext [customer=" + customer + ", invoiceDetailsList=" + invoiceDetailsList
+				+ ", deliveryChallan=" + deliveryChallanList + "]";
 	}
+
+	
 	
 	
 

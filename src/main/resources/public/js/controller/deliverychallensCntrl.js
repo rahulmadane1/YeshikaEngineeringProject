@@ -3,19 +3,17 @@ app.controller('deliverychallensCntrl', function($scope,$state,deliverychallenss
 	$scope.delivery_challen = [
         {
         	 'product': "", 
-             'PartyChallanDate': "",
-             'PartyChallanNo': "",
-             'Qty': ""
+             'challan_No': "",
+             'quantity': ""
         	
         }];
     
         $scope.addNew = function(delivery_challen){
         	console.log("calling addNew Function.....");
             $scope.delivery_challen.push({ 
-                'product': "", 
-                'PartyChallanDate': "",
-                'PartyChallanNo': "",
-                'Qty': ""
+            	'product': "", 
+                'challan_No': "",
+                'quantity': ""
             });
             $scope.PD = {};
         };
@@ -44,11 +42,13 @@ app.controller('deliverychallensCntrl', function($scope,$state,deliverychallenss
             });
         };
 	
+        $scope.invoiceContext={};
 	$scope.createdeliverychallen=function () {	
-		
-		console.log($scope.delivery_challen);
-		
-		deliverychallensservice.getdeliverychallen($scope.delivery_challen)
+		$scope.invoiceContext.deliveryChallanList=$scope.delivery_challen;
+		$scope.invoiceContext.customer=$scope.customer;
+		console.log($scope.invoiceContext);
+	
+		deliverychallensservice.getdeliverychallen($scope.invoiceContext)
 		.success(function() {
 			
 		}).error(function(error) {
