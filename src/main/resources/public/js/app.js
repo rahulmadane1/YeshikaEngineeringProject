@@ -44,10 +44,17 @@ var app = angular.module('app', ['ui.router','ngAnimate', 'ui.bootstrap', 'ngRes
 			templateUrl: viewsPrefix + "deliveryChallan.html",
 			controller:'deliverychallensCntrl',
 			pageTitle: 'Delivery Challan'
-		})		
+		}).state('paymentVoucherPDf', {
+			url: "/paymentVoucherPDf",
+			templateUrl: viewsPrefix + "htmlTopdf/paymentVoucherPdf.html",
+			controller:'paymentVoucherPdfCntrl',
+			pageTitle: 'paymentVoucherPDf'
+		})
 	    
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',
-		function($rootScope, $timeout) {}
+		function($rootScope, $timeout) {
+		$rootScope.paymentVoucherPdfObj={};
+	}
 	]);
 

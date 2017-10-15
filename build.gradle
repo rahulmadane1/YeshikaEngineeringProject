@@ -38,4 +38,8 @@ dependencies {
 	runtime('mysql:mysql-connector-java')	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	
+	compile group: 'com.itextpdf', name: 'itextpdf', version: '5.4.2'
+	compile group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.4.1'
+	
+	
 }

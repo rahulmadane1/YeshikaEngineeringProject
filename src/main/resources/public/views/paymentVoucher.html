@@ -1,156 +1,242 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-
 <style type="text/css">
 .login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+	width: 360px;
+	padding: 8% 0 0;
+	margin: auto;
 }
+
 .container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
+	position: relative;
+	z-index: 1;
+	max-width: 300px;
+	margin: 0 auto;
 }
+
 .container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
+	content: "";
+	display: block;
+	clear: both;
 }
+
 .container .info {
-  margin: 50px auto;
-  text-align: center;
+	margin: 50px auto;
+	text-align: center;
 }
+
 .container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
+	margin: 0 0 15px;
+	padding: 0;
+	font-size: 36px;
+	font-weight: 300;
+	color: #1a1a1a;
 }
+
 .container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
+	color: #4d4d4d;
+	font-size: 12px;
 }
+
 .container .info span a {
-  color: #000000;
-  text-decoration: none;
+	color: #000000;
+	text-decoration: none;
 }
+
 .container .info span .fa {
-  color: #EF3B3A;
+	color: #EF3B3A;
 }
-.col-md-12{
+
+.col-md-12 {
 	width: 94%;
-    margin-left: 40px;
+	margin-left: 40px;
+}
+
+.col-md-12-pdf {
+	width: 70%;
+	margin-left: 40px;
 }
 
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+	background: #76b852; /* fallback for old browsers */
+	background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+	background: -moz-linear-gradient(right, #76b852, #8DC26F);
+	background: -o-linear-gradient(right, #76b852, #8DC26F);
+	background: linear-gradient(to left, #76b852, #8DC26F);
+	font-family: "Roboto", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
-.btn-submit{
+
+.btn-submit {
 	color: #43A047;
-    margin-right: 20px;
+	margin-right: 20px;
 }
-.btn-primary{
-    margin-right: 10px;
+
+.btn-primary {
+	margin-right: 10px;
 }
-.container{
-  margin: 20px 0;
+
+.container {
+	margin: 20px 0;
 }
+
+
 </style>
 </head>
-<body ng-controller="paymentVoucherController">  
- 
-   <div class="row">
-     <div class="col-md-12">
-         <div class="panel panel-default">
-             <div class="panel-body">
-                 <form ng-submit="generatePaymentVoucher()">
-                 <h3>Payment Voucher</h3>
-   				 <h4>Customer Details:</h4>
-                 <table class="table" style="border-top:0px">
-	                 <thead>
-		                 <tr>
-			                 <th></th>
-			                 <th></th>
-		                 </tr>
-	                 </thead>
-	                 <tbody>
-		                 <tr><td style="padding-top: 16px">Customer name: </td>
-			                 <td>
-      							 <input type="text" class="form-control" ng-model="customer.customerName"  style="padding: '6px 133px';width: '50%';" required autofocus>
-			                 </td>
-			                 <td style="padding-top: 16px">Customer address: </td>
-			                  <td>
-		      					<input type="text" class="form-control" ng-model="customer.address" style="padding: '6px 133px';width: '50%';"  required autofocus>
-			                 </td>
-		                 </tr>
-		                  <tr>
-		                   <td style="padding-top: 16px">Customer contact: </td>
-			                 <td>
-	      						 <input type="text" class="form-control" ng-model="customer.contact" style="padding: '6px 133px';width: '50%';"  required autofocus>
-			                 </td>
-			                 <td style="padding-top: 16px">Customer email: </td>
-			                 <td>
-			      				<input type="text" class="form-control" ng-model="customer.email" style="padding: '6px 133px';width: '50%';" required autofocus>
-			                 </td>
-		                 </tr>
-	                 </tbody>
-                 </table>
-                     <table class="table table-striped table-bordered">
-                         <thead>
-                             <tr>
-                                 <th><input type="checkbox" ng-model="payment.selectedAll" ng-click="checkAll()" /></th>
-                                 <th>Product Description</th>
-                                 <th>HCS ACN</th>
-                                 <th>Taxable Value</th>
-                                 <th>GST</th>
-                                 <th>Amount Paid</th>
-                             </tr>
-                         </thead>
-                         <tbody>
-                             <tr ng-repeat="payment in paymentVoucher">
-                                 <td>
-                                     <input type="checkbox" ng-model="payment.selected"/></td>
-                                 <td>
-                                     <input type="text" class="form-control" ng-model="payment.product_desc" required/></td>
-                                 <td>
-                                     <input type="text" class="form-control" ng-model="payment.hcs_Acs" required/></td>
-                                 <td>
-                                     <input type="text" class="form-control" ng-model="payment.taxable_value" required/></td>
-                                 <td>
-                                     <input type="text" class="form-control" ng-model="payment.gst" required/></td>
-                                 <td>
-                                     <input type="text" class="form-control" ng-model="payment.total_amount" required/></td>
-                             </tr>
-                         </tbody>
-                     </table>
+<body ng-controller="paymentVoucherController">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form ng-submit="generatePaymentVoucher()" ng-if="showMainDiv">
+						<h3>Payment Voucher</h3>
+						<h4>Customer Details:</h4>
+						<table class="table" style="border: 2px">
+							
+							<tbody>
+								<tr>
+									<td style="padding-top: 16px">Customer name:</td>
+									<td><input type="text" class="form-control"
+										ng-model="customer.customerName"
+										style="padding: '6px 133px'; width: '50%';" required autofocus>
+									</td>
+									<td style="padding-top: 16px">Customer address:</td>
+									<td><input type="text" class="form-control"
+										ng-model="customer.address"
+										style="padding: '6px 133px'; width: '50%';" required autofocus>
+									</td>
+								</tr>
+								<tr>
+									<td style="padding-top: 16px">Customer contact:</td>
+									<td><input type="text" class="form-control"
+										ng-model="customer.contact"
+										style="padding: '6px 133px'; width: '50%';" required autofocus>
+									</td>
+									<td style="padding-top: 16px">Customer email:</td>
+									<td><input type="text" class="form-control"
+										ng-model="customer.email"
+										style="padding: '6px 133px'; width: '50%';" required autofocus>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<h4>Payment Details:</h4>
+						<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th><input type="checkbox" ng-model="payment.selectedAll"
+										ng-click="checkAll()" /></th>
+									<th>Product Description</th>
+									<th>HCS ACN</th>
+									<th>Taxable Value</th>
+									<th>GST</th>
+									<th>Amount Paid</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="payment in paymentVoucher">
+									<td><input type="checkbox" ng-model="payment.selected" /></td>
+									<td><input type="text" class="form-control"
+										ng-model="payment.product_desc" required ></td>
+									<td><input type="text" class="form-control"
+										ng-model="payment.hcs_Acs" required /></td>
+									<td><input type="text" class="form-control"
+										ng-model="payment.taxable_value" required ></td>
+									<td><input type="text" class="form-control"
+										ng-model="payment.gst" required /></td>
+									<td><input type="text" class="form-control"
+										ng-model="payment.total_amount" required ></td>
+								</tr>
+							</tbody>
+						</table>
 
-                     <div class="form-group">
-                         <input ng-hide="!paymentVoucher.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove">
-                         <input type="button" class="btn btn-primary addnew pull-right" ng-click="addNew()" value="Add New">
-                         <input type="submit" class="btn btn-submit pull-right" value="Submit">
-                     </div>
-                 </form>
-             </div>
-         </div>
-     </div>
-</div>
-</div>
+						<div class="form-group">
+							<input ng-hide="!paymentVoucher.length" type="button"
+								class="btn btn-danger pull-right" ng-click="remove()"
+								value="Remove" > 
+								<input type="button" class="btn btn-primary addnew pull-right" ng-click="addNew()"
+								value="Add New" > 
+								<input type="submit"
+								class="btn btn-submit pull-right" value="Submit" >
+						</div>
+					</form>
+
+
+				
+				</div>
+			</div>
+		</div>
+			<div class="col-md-12-pdf" ng-if="!showMainDiv">
+						<table class="table-alignment" style="border-collapse: separate" border="2">
+							<tr>
+								<td height="75" width="40%" colspan="4"><h2>
+										<p align="center">Yakshika Engineering</p>
+									</h2>
+								</td>
+							</tr>
+							<tr>
+								<td height="75">Customer Name:
+									{{invoiceContext.customer.customerName}}
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									Customer Address:{{invoiceContext.customer.address}} <br /> 
+									Customer Contact: {{invoiceContext.customer.contact}}
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									Customer Email: {{invoiceContext.customer.email}}
+								</td>
+							</tr>
+							<tr valign="top">
+								<td>
+									<table border="1px" width="100%">
+										<tr>
+											<th>Perticulars</th>
+											<th>HCS</th>
+											<th>Taxable Value</th>
+											<th>GST</th>
+											<th>Amount</th>
+										</tr>
+										<tr
+											ng-repeat="paymentVoucher in invoiceContext.paymentVoucherlist">
+											<td>
+												{{paymentVoucher.product_desc}}
+											</td>
+											<td>
+												{{paymentVoucher.hcs_Acs}}
+											</td>
+											<td>
+												{{paymentVoucher.taxable_value}}
+											</td>
+											<td>
+												{{paymentVoucher.gst}}
+											</td>
+											<td>
+												{{paymentVoucher.total_amount}}
+											</td>
+										</tr>
+										<tr>
+										<td style="border: none;"></td>
+										<td style="border: none;"></td>
+										<td style="border: none;"></td>
+											<td><b>Total</b></td>
+											<td>330</td>
+										</tr>
+										
+									</table>
+								</td>
+							</tr>
+						</table>
+						<div class="form-group">
+						<button type="button" class="btn btn-primary pull-right"
+							ng-click="">Export To PDF</button>
+						</div>
+					</div>
+	</div>
 </body>
-<script type="text/javascript">
 
+<script type="text/javascript">
 $('.message a').click(function(){
 	   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-	});</script>
+	});
+</script>
 </html>

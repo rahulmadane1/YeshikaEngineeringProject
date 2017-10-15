@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+h1 {
+  color:#ccc;
+}
+table tr td{
+	text-align:center;
+	border:1px solid gray;
+	padding:4px;
+}
+table tr th{
+	background-color:#84C7FD;
+	color:#fff;
+	width: 100px;
+}
+.itext{
+	color:#84C7FD;
+	font-weight:bold;
+}
+.description{
+	color:gray;
+}
+
+</style>
+</head>
+<body ng-controller="paymentVoucherPdfCntrl">  
+  
+    <table class="table-alignment" height = "100%" width = "100%" border = "5">
+         <tr>
+			<td  height = "75" width = "40%" colspan ="4">Yakshika Engineering</td>
+		 </tr>
+		 <tr>
+			<td  height = "75" width = "40%" colspan ="4">Customer Name: {{paymentVoucherPdfObj.customer.customerName}}</td>
+		 </tr>
+         <tr valign = "top">
+           <td>
+			<table width = "100%" >
+	         	<tr  width = "20%" border-right ="2px">
+		         	<th>Perticulars{{paymentVoucherPdfObj}}</th>
+		         	<th>HCS</th>
+		         	<th>Taxable Value</th>
+		         	<th>GST</th>
+					<th>Amount</th>
+	         	</tr>
+	         	<tr ng-repeat="paymentVoucher in paymentVoucherPdfObj.paymentVoucherlist">
+	         		<td  width = "20%">{{paymentVoucher.product_desc}}</td>
+	            	<td  width = "20%">{{paymentVoucher.hcs_Acs}}</td>
+	            	<td  width = "20%">{{paymentVoucher.taxable_value}} </td>
+					<td  width = "20%">{{paymentVoucher.gst}}</td>
+					<td  width = "20%">{{paymentVoucher.total_amount}}</td>
+	         	</tr>
+	         </table>
+		   </td>
+         </tr>
+      </table>
+</body>
+
+</html>

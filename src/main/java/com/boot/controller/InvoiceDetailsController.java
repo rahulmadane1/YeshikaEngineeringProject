@@ -35,13 +35,9 @@ public class InvoiceDetailsController {
 		System.err.println(invoiceDetails.size());	
 		Customer customer=invoiceContext.getCustomer();
         for (InvoiceDetails invoiceDetails2 : invoiceDetails) {	
-			
         	invoiceDetails2.setCustomer(customer);
 			invoiceDetailsServiceImpl.saveinvoicedetail(invoiceDetails2);
 		}
-		
-		
-		
 	
 	}
 
